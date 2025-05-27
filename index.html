@@ -28,7 +28,17 @@
             margin-bottom: 2rem;
             text-align: center;
         }
-         
+        .home-background {
+            background-image: url('./HomeBG.jpg'); /* IMPORTANT: Replace './path-to-your-hero-image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .lighter-red-glow {
+            /* Adjust glow color and intensity as needed */
+            text-shadow: 0 0 8px rgba(248, 113, 113, 0.7), /* Tailwind red-400 for glow */
+                         0 0 12px rgba(252, 165, 165, 0.5); /* Tailwind red-300 for softer outer glow */
+        }
 
         /* Nav specific styles for responsive design */
         @media (max-width: 768px) {
@@ -46,7 +56,7 @@
 
 <body class="bg-gray-100">
 
-    <nav class="bg-gray-800 text-white p-4 shadow-md sticky top-0 z-50">
+    <nav class="bg-gray-800 text-white p-6 shadow-md sticky top-0 z-50">
         <ul class="container mx-auto flex justify-center space-x-6 md:space-x-10 text-lg">
             <li><a href="#home" class="hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"><i class="fas fa-home"></i> <span class="hidden md:inline">Home</span></a></li>
             <li><a href="#about" class="hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"><i class="fas fa-user"></i> <span class="hidden md:inline">About</span></a></li>
@@ -58,10 +68,11 @@
         </ul>
     </nav>
 
-    <section id="home" class="relative bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-24 md:py-32 flex items-center justify-center min-h-[calc(100vh-64px)]">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-down">SHANKAR H S</h1>
-            <p class="text-xl md:text-2xl font-light mb-8 opacity-90 animate-fade-in-up">JAVA FULL STACK DEVELOPER</p>
+    <section id="home" class="home-background relative text-white py-24 md:py-32 flex items-center justify-center min-h-[calc(100vh-64px)]">
+        <!-- The div below now has a semi-transparent background for better text readability over the image -->
+        <div class="relative z-10 container mx-auto px-4 text-center bg-black bg-opacity-50 p-6 md:p-8 rounded-lg">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-down"><i>SHANKAR H S</i></h1>
+            <p class="text-xl md:text-2xl font-light mb-8 opacity-90 animate-fade-in-up"><span class="text-white font-semibold"><b>JAVA FULL STACK DEVELOPER</b></span></p>
             <a href="./ShankarHS+9180888130010.pdf" class="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-colors duration-300 shadow-lg animate-fade-in-up" download="Shankar_HS_Resume.pdf">
                 <i class="fas fa-download mr-2"></i> Download Resume
             </a>
@@ -69,12 +80,22 @@
     </section>
 
     <section id="about" class="py-16 bg-white shadow-inner">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-gray-800 section-heading"><i class="fas fa-info-circle mr-3 text-blue-500"></i> About Me</h2>
-            <img src="./Myimg.jpg" alt="Shankar H S Profile" class="profile-pic w-40 h-40 rounded-full mx-auto mb-8 object-cover shadow-lg border-4 border-blue-200">
-            <div class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700">
-                <p class="mb-4">As a recent Bachelor of Computer Applications graduate from <strong class="text-blue-600">"Kalpataru First Grade Science College, Tiptur"</strong>, I'm <strong class="text-blue-600">Shankar H.S.</strong>, an aspiring <strong class="text-blue-600">Java Full Stack Developer</strong>. I bring a solid understanding of <strong class="text-blue-600">Java, SQL,</strong> and core web technologies such as <strong class="text-blue-600">HTML, CSS</strong> and <strong class="text-blue-600">JavaScript</strong>. I'm eager to leverage my skills and passion for development to build robust and scalable applications.</p>
-                <p>My passion for coding ignited early, evolving into a dedicated journey to master Java and web technologies. Now, I'm driven to transform this passion into a career as a <strong class="text-blue-600">Java Full Stack Developer</strong>, ready to contribute to innovative projects.</p>
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 section-heading">
+                <i class="fas fa-info-circle mr-3 text-blue-500"></i> About Me
+            </h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mt-8">
+                <!-- Image Column -->
+                <div class="flex-shrink-0">
+                    <img src="./Myimg.jpg" alt="Shankar H S Profile"
+                         class="w-64 h-80 object-cover rounded-lg shadow-lg border-4 border-blue-200">
+                         <!-- Increased size, rectangular (rounded-lg), object-cover ensures aspect ratio is maintained while filling dimensions -->
+                </div>
+                <!-- Text Content Column -->
+                <div class="text-lg leading-relaxed text-gray-700 text-left">
+                    <p class="mb-4">As a recent Bachelor of Computer Applications graduate from <strong class="text-blue-600">"Kalpataru First Grade Science College, Tiptur"</strong>, I'm <strong class="text-blue-600">Shankar H.S.</strong>, an aspiring <strong class="text-blue-600">Java Full Stack Developer</strong>. I bring a solid understanding of <strong class="text-blue-600">Java, SQL,</strong> and core web technologies such as <strong class="text-blue-600">HTML, CSS</strong> and <strong class="text-blue-600">JavaScript</strong>. I'm eager to leverage my skills and passion for development to build robust and scalable applications.</p>
+                    <p>My passion for coding ignited early, evolving into a dedicated journey to master Java and web technologies. Now, I'm driven to transform this passion into a career as a <strong class="text-blue-600">Java Full Stack Developer</strong>, ready to contribute to innovative projects.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -132,24 +153,24 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold text-gray-800 section-heading"><i class="fas fa-laptop-code mr-3 text-blue-500"></i> Skills</h2>
             <div class="skills-container flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Java</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Spring Boot</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Spring MVC</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Spring IOC</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Spring Data JPA</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Hibernate</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">JDBC</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Git & GitHub</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">JPA (Java Persistence API)</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">J2EE</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">JSP (JavaServer Pages)</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">MySQL</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">Oracle</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">XML</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">REST API</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">HTML</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">CSS</span>
-                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md">JavaScript</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Java</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">REST API</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Spring Boot</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Spring MVC</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Spring IOC</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Spring Data JPA</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Hibernate</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">JDBC</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Git & GitHub</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">J2EE</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">JSP (JavaServer Pages)</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">MySQL</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Oracle</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">XML</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">HTML</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">CSS</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">JavaScript</span>
+                <span class="skill-tag bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 hover:shadow-lg hover:scale-110 transition-all duration-200 ease-in-out">Basics of Python</span>
             </div>
         </div>
     </section>
