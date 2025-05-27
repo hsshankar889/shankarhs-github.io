@@ -1,1 +1,1 @@
-# shankarhs-github.io
+# shankarhs.io
